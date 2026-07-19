@@ -90,6 +90,9 @@ stadiumops-ai/
 - Staff Q&A answers are explicitly grounded in the current live snapshot to reduce the risk of the assistant inventing information during an operational incident.
 
 ## 7. Accessibility
-- Clear color-coded status icons (🔴🟠🟢) alongside text labels, not color alone.
-- Multi-language output for both staff and public-facing announcements.
-- Simple, linear dashboard layout suitable for fast scanning under control-room time pressure.
+- **No color-only signaling:** every gate status shows an explicit text label ("Critical" / "Busy" / "Normal") alongside the color icon, so the information is available to colorblind users and screen readers, not conveyed by color alone.
+- **Live regions for dynamic content:** the GenAI recommendation (`aria-live="polite"`) and incident alerts (`role="alert"`, `aria-live="assertive"`) are marked up so screen readers announce updates automatically when the dashboard refreshes, instead of silently changing content the user has to notice visually.
+- **Skip-to-content link:** a keyboard-focusable "Skip to main content" link is provided at the top of the page for keyboard and screen-reader users, so they aren't forced to tab through the entire sidebar on every page load.
+- **Visible focus indicators:** all interactive elements (links, buttons, inputs, selects) have an enhanced, high-contrast focus outline for keyboard navigation.
+- **Descriptive control labels:** buttons and inputs use full descriptive labels ("Ask StadiumOps AI", "Refresh live venue data") rather than ambiguous single words, since screen reader users often navigate by jumping between controls out of surrounding context.
+- **Multi-language output:** both staff-facing recommendations and public announcements can be generated in multiple languages for non-English-speaking fans and staff.
